@@ -40,39 +40,11 @@ function copy_conf() {
 }
 
 isrunning() {
-    # Check for running app
-    if [ -f "$BROKLYN_PID_FILE" ]; then
-      pid=$(cat $BROKLYN_PID_FILE);
-      running=`/bin/ps --no-headers --pid $pid`
-      if test -n "$running";
-      then
-        return 0
-      fi
-    fi
-    # not running
-    return 1
+  echo "Starting $cartridge_type cart"
 }
 
 function start() {
   echo "Starting $cartridge_type cart"
-      
-  #if marker_present "enable_jpda"
-  #then
-  #  export ENABLE_JPDA=1
-  #fi
-
-  #copy_conf
-
-  # Check for running app
-  if isrunning; then
-      echo "Application is already running"
-  else    
-      pushd ${OPENSHIFT_BROOKLYN_DIR}
-      bin/brooklyn launch > ${OPENSHIFT_TMP_DIR}/${cartridge_type}.log 2>&1 &
-      PROCESS_ID=$!
-      echo $PROCESS_ID > $BROOKLYN_PID_FILE
-      popd
-  fi
 }
 
 # Kill the process given by $1 and its children
