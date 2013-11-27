@@ -26,6 +26,7 @@ function copy_conf() {
           for f in ${OPENSHIFT_REPO_DIR}.openshift/config/*
           do
             target=$(basename $f)
+            echo target
             # Remove any target that is being overwritten
             if [ -e "${OPENSHIFT_BROOKLYN_DIR}/brooklyn/bin/$target" ]
             then
