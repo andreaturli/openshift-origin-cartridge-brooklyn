@@ -12,7 +12,6 @@ Cartridge-Vendor: cloudsoft
 Source-Url: http://github.com/andreaturli/openshift-origin-cartridge-brooklyn.git
 Categories:
 - web_framework
-- service
 Provides:
 - brooklyn-0.6.0
 - "brooklyn"
