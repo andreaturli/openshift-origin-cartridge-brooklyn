@@ -1,0 +1,36 @@
+---
+Name: brooklyn
+Cartridge-Short-Name: BROOKLYN
+Display-Name: Brooklyn
+Description: brooklyn is a library that simplifies application deployment and management.
+Version: '0.6.0'
+License: Apache2
+License-Url: http://www.apache.org/licenses/LICENSE-2.0.html
+Vendor: Cloudsoft
+Cartridge-Version: 0.0.1
+Cartridge-Vendor: cloudsoft
+Source-Url: http://github.com/andreaturli/openshift-origin-cartridge-brooklyn.git
+Categories:
+- web_framework
+Provides:
+- brooklyn-0.6.0
+- "brooklyn"
+- "brooklyn(version) = 0.6.0"
+- "brooklyn(version) >= 0.6.0"
+Cart-Data:
+- Key: OPENSHIFT_BROOKLYN_LOG_DIR
+  Type: environment
+  Description: "Directory to store application log files."
+Publishes:
+  publish-generic-java:
+    Type: "ENV:NET_TCP:generic-java"
+Subscribes:
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: HTTP_PORT
+  Private-Port: 8081
+  Public-Port-Name: HTTP_PROXY_PORT
+Scaling:
+  Min: 1
+  Max: 1
+Install-Build-Required: false
